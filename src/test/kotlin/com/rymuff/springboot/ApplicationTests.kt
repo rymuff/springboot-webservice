@@ -1,10 +1,10 @@
-package com.rymuff.springbootwebservice
+package com.rymuff.springboot
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SpringbootWebserviceApplicationTests {
+class ApplicationTests {
 
     @Test
     fun contextLoads() {
