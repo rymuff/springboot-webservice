@@ -1,11 +1,11 @@
-package com.rymuff.springbootwebservice
+package com.rymuff.springboot
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringbootWebserviceApplication
+class Application
 
 fun main(args: Array<String>) {
-    runApplication<SpringbootWebserviceApplication>(*args)
+    runApplication<Application>(*args)
 }
