@@ -1,6 +1,7 @@
 package com.rymuff.springboot.service
 
 import com.rymuff.springboot.domain.post.PostRepository
+import com.rymuff.springboot.web.dto.PostListResponseDto
 import com.rymuff.springboot.web.dto.PostResponseDto
 import com.rymuff.springboot.web.dto.PostSaveRequestDto
 import com.rymuff.springboot.web.dto.PostUpdateRequestDto
@@ -20,8 +21,18 @@ class PostService(
         return id
     }
 
+    @Transactional
+    fun delete(id: Long): Long {
+        val post = postRepository.findById(id).orElseThrow { IllegalArgumentException("Not found id=$id") }
+        postRepository.delete(post)
+        return id
+    }
+
     fun findById(id: Long): PostResponseDto {
         val post = postRepository.findById(id).orElseThrow { IllegalArgumentException("Not found id=$id") }
         return PostResponseDto.of(post)
     }
+
+    @Transactional(readOnly = true)
+    fun findAll() = postRepository.findAll().map(PostListResponseDto.Companion::of)
 }
